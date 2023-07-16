@@ -25,13 +25,13 @@ const run = async () => {
         console.log('connected')
 
         // get api
-        app.get('/card', async (req, res) => {
+        app.get('/tour', async (req, res) => {
             const cursor = touristCollection.find({})
             const result = await cursor.toArray()
             res.send(result)
         })
 
-        app.post('/card', async (req, res) => {
+        app.post('/tour', async (req, res) => {
             const newEvent = req.body
             const result = await touristCollection.insertOne(newEvent)
             res.json(result)
